@@ -1,51 +1,52 @@
 
-$("#currentDay").text(moment().format("dddd, MMMM, Do"))
+$(document).ready(function () {
 
-function checkTime() {
-  var time = moment().format("k");
-  var timeInt = parseInt(time);
-  var timeObj = {
-    "#9": 9,
-    "#10": 10,
-    "#11": 11,
-    "#12": 12,
-    "#13": 13,
-    "#14": 14,
-    "#15": 15,
-    "#16": 16,
-    "#17": 17
-  }
+  $("#currentDay").text(moment().format("dddd, MMMM, Do"))
 
-  for (property in timeObj) {
-
-    if (timeInt > timeObj[property]) {
-
-      $(property).addClass("past");
-
-    } else if (timeInt === timeObj[property]) {
-
-      $(property).addClass("present");
-
-    } else {
-      $(property).addClass("future");
+  function checkTime() {
+    var time = moment().format("k");
+    var timeInt = parseInt(time);
+    var timeObj = {
+      "#9": 9,
+      "#10": 10,
+      "#11": 11,
+      "#12": 12,
+      "#13": 13,
+      "#14": 14,
+      "#15": 15,
+      "#16": 16,
+      "#17": 17
     }
-  }
-};
 
-checkTime();
+    for (property in timeObj) {
+
+      if (timeInt > timeObj[property]) {
+
+        $(property).addClass("past");
+
+      } else if (timeInt === timeObj[property]) {
+
+        $(property).addClass("present");
+
+      } else {
+        $(property).addClass("future");
+      }
+    }
+  };
+
+  checkTime();
 
 
-$(".saveBtn").on('click', function () {
+  $(document).on('click', ".saveBtn", function () {
 
-  var text = $(this.textarea).val();
-  console.log(text)
+    var textVal = $(".textarea").val();
+    console.log(this.attr("#id"));
 
-  /*
-  localStorage.setItem(text, value);
-  var text = $(this).parent().attr("id");
+    /*
+    localStorage.setItem(text, value);
+    var text = $(this).parent().attr("id");
+  
+    */
 
-  */
-
-})
-
-
+  })
+});
