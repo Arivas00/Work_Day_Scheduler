@@ -2,7 +2,7 @@
 $("#currentDay").text(moment().format("dddd, MMMM, Do"))
 
 function checkTime() {
-  var time = moment().format("h");
+  var time = moment().format("k");
   var timeInt = parseInt(time);
   var timeObj = {
     "#9": 9,
@@ -37,9 +37,14 @@ checkTime();
 
 $(".saveBtn").on('click', function () {
 
-  var text = $(".text").val();
+  var text = $(this.textarea).val();
+  console.log(text)
+
+  /*
   localStorage.setItem(text, value);
   var text = $(this).parent().attr("id");
+
+  */
 
 })
 
