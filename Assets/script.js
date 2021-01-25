@@ -1,7 +1,6 @@
 
 $("#currentDay").text(moment().format("dddd, MMMM, Do"))
 
-
 function checkTime() {
   var time = moment().format("h");
   var timeInt = parseInt(time);
@@ -33,19 +32,7 @@ function checkTime() {
   }
 };
 
-
 checkTime();
-
-
-var time = moment().format("h");
-
-var timeInt = parseInt(time);
-
-console.log(timeInt);
-console.log(time);
-
-
-
 
 
 $(".saveBtn").on('click', function () {
