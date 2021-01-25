@@ -1,10 +1,13 @@
 
 $("#currentDay").text(moment().format("dddd, MMMM, Do"))
 
+var timeArr = ["#9", "#10", "#11", "#12", "#13", "#14", "#15", "#16", "#17"]
 
 function checkTime() {
-    var time = moment().format("hA");
+    var time = moment().format("h");
     var timeInt = parseInt(time);
+
+    
     if (timeInt < 9) {
         $("#9").addClass("past");
     } else if (timeInt === 9) {
@@ -19,12 +22,14 @@ function checkTime() {
 checkTime();
 
 
-var time = moment().format("hA");
+var time = moment().format("h");
 
 var timeInt = parseInt(time);
 
 console.log(timeInt);
 console.log(time);
+
+console.log(parseInt("#9"));
 
 
 
