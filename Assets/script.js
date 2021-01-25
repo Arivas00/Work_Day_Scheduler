@@ -1,21 +1,36 @@
 
 $("#currentDay").text(moment().format("dddd, MMMM, Do"))
 
-var timeArr = ["#9", "#10", "#11", "#12", "#13", "#14", "#15", "#16", "#17"]
 
 function checkTime() {
-    var time = moment().format("h");
-    var timeInt = parseInt(time);
+  var time = moment().format("h");
+  var timeInt = parseInt(time);
+  var timeObj = {
+    "#9": 9,
+    "#10": 10,
+    "#11": 11,
+    "#12": 12,
+    "#13": 13,
+    "#14": 14,
+    "#15": 15,
+    "#16": 16,
+    "#17": 17
+  }
 
-    
-    if (timeInt < 9) {
-        $("#9").addClass("past");
-    } else if (timeInt === 9) {
-        $("#9").addClass("present");
+  for (property in timeObj) {
+
+    if (timeInt > timeObj[property]) {
+
+      $(property).addClass("past");
+
+    } else if (timeInt === timeObj[property]) {
+
+      $(property).addClass("present");
+
     } else {
-        $("#9").addClass("future");
+      $(property).addClass("future");
     }
-
+  }
 };
 
 
@@ -29,17 +44,16 @@ var timeInt = parseInt(time);
 console.log(timeInt);
 console.log(time);
 
-console.log(parseInt("#9"));
 
 
 
 
-$(".saveBtn").on('click', function() {
+$(".saveBtn").on('click', function () {
 
-    var text = $(".text").val();
-    localStorage.setItem(text, value);
-    var text = $(this).parent().attr("id");
+  var text = $(".text").val();
+  localStorage.setItem(text, value);
+  var text = $(this).parent().attr("id");
 
-}) 
+})
 
 
