@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
   $("#currentDay").text(moment().format("dddd, MMMM, Do"))
@@ -39,14 +38,15 @@ $(document).ready(function () {
 
   $(document).on('click', ".saveBtn", function () {
 
-    var textVal = $(".textarea").val();
-    console.log(this.attr("#id"));
-
-    /*
-    localStorage.setItem(text, value);
-    var text = $(this).parent().attr("id");
+    var textVal = $(this).prev().val();
+    console.log(textVal);
+    var key = $(this).prev().attr("id");
+    console.log(key);
+    
+    localStorage.setItem(key, textVal);
+    localStorage.getItem(key, textVal);
+    
   
-    */
 
   })
 });
