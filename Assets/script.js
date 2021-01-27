@@ -19,6 +19,11 @@ $(document).ready(function () {
 
     for (property in timeObj) {
 
+      var key = $(property).attr("id");
+      var lS = localStorage.getItem(key);
+
+      $(property).text(lS);
+
       if (timeInt > timeObj[property]) {
 
         $(property).addClass("past");
@@ -30,23 +35,21 @@ $(document).ready(function () {
       } else {
         $(property).addClass("future");
       }
+
     }
+
+
   };
 
   checkTime();
 
-
   $(document).on('click', ".saveBtn", function () {
 
     var textVal = $(this).prev().val();
-    console.log(textVal);
     var key = $(this).prev().attr("id");
-    console.log(key);
-    
+
     localStorage.setItem(key, textVal);
-    localStorage.getItem(key, textVal);
-    
-  
 
   })
+
 });
